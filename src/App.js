@@ -7,12 +7,12 @@ import { useEffect } from "react";
 function App() {
   const [color, setColor] = useState("");
   const [error, setError] = useState(false);
-  const [list, setList] = useState(new Values("#ff0000").all(5));
+  const [list, setList] = useState(new Values("#ff0000").all(10));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      let colors = new Values(color).all(5);
+      let colors = new Values(color).all(10);
       setList(colors);
       setError(false);
     } catch (error) {
