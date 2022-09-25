@@ -6,15 +6,22 @@ import { useEffect } from "react";
 
 function App() {
   const [color, setColor] = useState("");
+  const [percent, setPercent] = useState();
   const [error, setError] = useState(false);
   const [list, setList] = useState(new Values("#ff0000").all(10));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      let colors = new Values(color).all(10);
-      setList(colors);
-      setError(false);
+      if (percent > 0 && percent < 100) {
+        let colors = new Values(color).all(percent);
+        console.log(colors);
+        console.log(percent);
+        setList(colors);
+        setError(false);
+      } else {
+        setError(true);
+      }
     } catch (error) {
       setError(true);
     }
@@ -32,6 +39,13 @@ function App() {
             placeholder="#ff0000"
             className={error ? "error" : null}
           />
+          <input
+            type="number"
+            value={percent}
+            placeholder="Distribution factor"
+            onChange={(e) => setPercent(parseInt(e.target.value))}
+            className={error ? "error" : null}
+          />
           <button className="btn" type="submit">
             Generate
           </button>
@@ -39,13 +53,14 @@ function App() {
       </section>
       <section className="colors">
         {list.map((color, index) => {
-          console.log(color);
+          // console.log(color);
           return (
             <SingleColor
               key={index}
               {...color}
               index={index}
               hexColor={color.hex}
+              percent={percent}
             />
           );
         })}
