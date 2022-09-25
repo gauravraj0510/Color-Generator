@@ -42,7 +42,7 @@ function App() {
           <input
             type="number"
             value={percent}
-            placeholder="Distribution factor"
+            placeholder="Distribution percent"
             onChange={(e) => setPercent(parseInt(e.target.value))}
             className={error ? "error" : null}
           />

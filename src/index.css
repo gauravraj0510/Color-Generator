@@ -153,16 +153,17 @@ Color Generator
 }
 
 input {
-  border-color: transparent;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+  border-color: 1px solid black;
+  margin-right: 5px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
   border-top-left-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
 }
 .btn {
   background: var(--clr-primary-5);
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
   border-color: transparent;
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
