@@ -2,14 +2,22 @@ import React, { useState } from "react";
 import SingleColor from "./SingleColor";
 
 import Values from "values.js";
+import { useEffect } from "react";
 
 function App() {
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("#f15025");
   const [error, setError] = useState(false);
   const [list, setList] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      let colors = new Values(color).all(10);
+      setList(colors);
+      setError(false);
+    } catch (error) {
+      setError(true);
+    }
   };
 
   return (
@@ -22,6 +30,7 @@ function App() {
             value={color}
             onChange={(e) => setColor(e.target.value)}
             placeholder="#f15025"
+            className={error ? "error" : null}
           />
           <button className="btn" type="submit">
             Generate
@@ -29,7 +38,17 @@ function App() {
         </form>
       </section>
       <section className="colors">
-        <h4>list goes here</h4>
+        {list.map((color, index) => {
+          console.log(color);
+          return (
+            <SingleColor
+              key={index}
+              {...color}
+              index={index}
+              hexColor={color.hex}
+            />
+          );
+        })}
       </section>
     </>
   );
