@@ -7,7 +7,7 @@ import { useEffect } from "react";
 function App() {
   const [color, setColor] = useState("");
   const [error, setError] = useState(false);
-  const [list, setList] = useState(new Values("#ff0000").all(10));
+  const [list, setList] = useState(new Values("#ff0000").all(5));
 
   const handleSubmit = (e) => {
     e.preventDefault();
