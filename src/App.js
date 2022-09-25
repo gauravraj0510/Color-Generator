@@ -8,7 +8,7 @@ function App() {
   const [color, setColor] = useState("");
   const [percent, setPercent] = useState();
   const [error, setError] = useState(false);
-  const [list, setList] = useState(new Values("#ff0000").all(10));
+  const [list, setList] = useState(new Values("#A020F0").all(5));
 
   const handleSubmit = (e) => {
     e.preventDefault();
