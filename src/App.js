@@ -5,9 +5,9 @@ import Values from "values.js";
 import { useEffect } from "react";
 
 function App() {
-  const [color, setColor] = useState("#f15025");
+  const [color, setColor] = useState("");
   const [error, setError] = useState(false);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(new Values("#ff0000").all(10));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ function App() {
             type="text"
             value={color}
             onChange={(e) => setColor(e.target.value)}
-            placeholder="#f15025"
+            placeholder="#ff0000"
             className={error ? "error" : null}
           />
           <button className="btn" type="submit">
