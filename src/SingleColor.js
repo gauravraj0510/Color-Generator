@@ -16,7 +16,9 @@ const SingleColor = ({ rgb, weight, index, hexColor, percent }) => {
 
   return (
     <article
-      className={`color ${index > 100 / percent && "color-light"}`}
+      className={`color ${
+        percent ? index > 100 / percent : index > 20 && "color-light"
+      }`}
       style={{ backgroundColor: `rgb(${bcg})` }}
       onClick={() => {
         setAlert(true);
